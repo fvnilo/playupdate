@@ -3,20 +3,14 @@ package csv
 import (
 	"encoding/csv"
 	"io"
-	"os"
 )
 
-func ReadFile(path string) ([]string, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer f.Close()
-	r := csv.NewReader(f)
+func ReadFile(r io.Reader) ([]string, error) {
+	csvReader := csv.NewReader(r)
 
 	macAddresses := make([]string, 0)
 	for {
-		record, err := r.Read()
+		record, err := csvReader.Read()
 		if err == io.EOF {
 			break
 		}
@@ -27,5 +21,9 @@ func ReadFile(path string) ([]string, error) {
 		macAddresses = append(macAddresses, record[0])
 	}
 
-	return macAddresses, nil
+	if len(macAddresses) == 0 {
+		return macAddresses, nil
+	}
+
+	return macAddresses[1:], nil
 }

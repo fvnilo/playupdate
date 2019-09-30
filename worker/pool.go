@@ -24,7 +24,7 @@ func (p *Pool) Start(macAddresses []string) {
 		go startWorker(inputs, &wg, p.updateService)
 	}
 
-	for _, mac := range macAddresses[1:] {
+	for _, mac := range macAddresses {
 		inputs <- mac
 	}
 	close(inputs)

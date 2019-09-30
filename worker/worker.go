@@ -13,7 +13,7 @@ func startWorker(inputs <-chan string, wg *sync.WaitGroup, updateService playupd
 	for mac := range inputs {
 		err := updateService.Update(mac)
 		if err != nil {
-			log.Printf("Could not update mac [%s]: %s", err)
+			log.Printf("Could not update mac [%s]: %s", mac, err)
 		}
 	}
 }
