@@ -30,5 +30,4 @@ func (p *Pool) Start(macAddresses []string) {
 	close(inputs)
 
 	wg.Wait()
-
 }
