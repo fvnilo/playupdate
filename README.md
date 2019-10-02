@@ -34,7 +34,7 @@ NAME:
    playupdate - Update music players in batch
 
 USAGE:
-   main [global options] command [command options] [arguments...]
+   playupdate [global options] command [command options] [arguments...]
 
 VERSION:
    0.1.0
