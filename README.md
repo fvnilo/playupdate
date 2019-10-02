@@ -55,3 +55,12 @@ playupdate --input file-path-here.csv
 ```
 
 If you want to use another base url for the update api, you can specify `--api-url url-here.com`.
+
+
+### Local usage
+In local, you can run the `dummyserver` command first in order to have a simple http server that will respond with a 200:
+```
+go run main/dummyserver/main.go
+```
+
+When it is running, you can run the cli with `go run cmd/playupdate/main.go -i examples/input.csv`.
