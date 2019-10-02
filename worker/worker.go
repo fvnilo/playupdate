@@ -11,9 +11,11 @@ func startWorker(inputs <-chan string, wg *sync.WaitGroup, updateService playupd
 	defer wg.Done()
 
 	for mac := range inputs {
-		err := updateService.Update(mac)
+		_, err := updateService.Update(mac)
 		if err != nil {
 			log.Printf("Could not update mac [%s]: %s", mac, err)
+		} else {
+			log.Printf("Updated player with mac address [%s]", mac)
 		}
 	}
 }

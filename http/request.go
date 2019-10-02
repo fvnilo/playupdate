@@ -1,31 +1,20 @@
 package http
 
-type Application struct {
-	ApplicationID string `json:"applicationId"`
-	Version       string `json:"version"`
-}
+import "github.com/nylo-andry/playupdate"
 
-type Profile struct {
-	Applications []Application `json:"applications`
-}
-
-type RequestBody struct {
-	Profile Profile `json:"profile"`
-}
-
-func NewRequestBody() *RequestBody {
-	return &RequestBody{
-		Profile: Profile{
-			Applications: []Application{
-				Application{
+func NewUpdateProfile() *playupdate.UpdateProfile {
+	return &playupdate.UpdateProfile{
+		Profile: playupdate.Profile{
+			Applications: []playupdate.Application{
+				playupdate.Application{
 					ApplicationID: "music_app",
 					Version:       "v1.4.10",
 				},
-				Application{
+				playupdate.Application{
 					ApplicationID: "diagnostic_app",
 					Version:       "v1.2.6",
 				},
-				Application{
+				playupdate.Application{
 					ApplicationID: "settings_app",
 					Version:       "v1.1.5",
 				},
