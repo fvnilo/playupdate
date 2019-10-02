@@ -18,3 +18,5 @@
 ## What can be done better
 - There are unit tests but I tend to favor integration and end-to-end tests. I believe this can be done with docker-compose where a fake service would have been started mimicking the update API and the cli would be in another container and call that API and from that we could tail and analyze the logs.
 - The way it is build, the cli could have many subcommands to accomplish other operations.
+- The build instructions assume that the machine running it has go and make installed. We could reduce that to only needing docker and build inside of a controller docker container and just map the output to the outside.
+- How it is distributed: I enjoy it when this type of CLI are self-aware of their version and can update themselves.
